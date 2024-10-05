@@ -1,10 +1,14 @@
 import React from "react";
+import styled from 'styled-components';
+
 
 const PlusPage = () => {
     return (
         <div>
-            더보기 페이지
+            안녕
         </div>
+        
+        
     );
 };
 
