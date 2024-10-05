@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { ThemeProvider } from 'styled-components'; // theme 사용을 위해
+import styled from 'styled-components'; // styled-components 사용
+import theme from './style/theme.ts';  // theme 사용을 위해
+
+// StyledSpan 컴포넌트 정의
+const StyledSpan = styled.span`
+  ${({ theme }) => theme.fonts.heading_01};
+  color: ${({ theme }) => theme.colors.bg};
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <StyledSpan>안녕</StyledSpan> {/* StyledSpan 사용 */}
+      </div>
+    </ThemeProvider>
   );
 }
 
