@@ -4,7 +4,8 @@ import { DefaultTheme, css } from 'styled-components';
 const theme: DefaultTheme = {
   colors: {
     bg: '#F1F4F5',
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+    black: '#343845'
     
   },
   fonts: {

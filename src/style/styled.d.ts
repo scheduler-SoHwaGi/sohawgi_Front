@@ -7,6 +7,7 @@ declare module 'styled-components' {
     colors: {
       bg: string;
       white: string;
+      black: string;
     };
     fonts: {
       heading_01: CSSProp;
