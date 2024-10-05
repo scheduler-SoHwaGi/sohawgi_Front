@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 // 하단바 스타일 정의
 const BottomNavWrapper = styled.nav`
@@ -18,9 +19,16 @@ const BottomNavWrapper = styled.nav`
 const BottomNavi: React.FC = () => {
   return (
     <BottomNavWrapper>
-      <div>button1</div>
-      <div>button2</div>
-      <div>button3</div>
+      <div>
+        <Link to="/">
+            일정
+        </Link>
+      </div>
+      <div>
+        <Link to="/PlusPage">
+            더보기
+        </Link>
+      </div>
     </BottomNavWrapper>
   );
 };
