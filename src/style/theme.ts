@@ -3,9 +3,15 @@ import { DefaultTheme, css } from 'styled-components';
 
 const theme: DefaultTheme = {
   colors: {
-    bg: '#F1F4F5',
-    white: '#FFFFFF',
-    black: '#343845'
+    Gray_01: "#F1F4F5",
+    Gray_02: "#E4E5E8",
+    Gray_03: "#DADDE0",
+    Gray_04: "#9EA4B6",
+    Gray_05: "#74767C",
+    Gray_06: "#343845",
+    White: "#FFFFFF",
+    
+
     
   },
   fonts: {
