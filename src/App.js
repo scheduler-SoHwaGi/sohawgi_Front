@@ -7,7 +7,7 @@ import BottomNavi from './components/BottomNavi/BottomNavi.tsx';
 
 // 상위 컨테이너 스타일
 const Container = styled.div`
-  max-width: 375px;
+  max-width: 420px;
   width: 100%;
   display: flex;
   flex-direction: column;
