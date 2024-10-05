@@ -66,20 +66,19 @@ const GlobalStyle = createGlobalStyle`
 
 
     body {
+        margin: 0;
+        padding: 0;
         width: 100%;
         min-height: 100vh;
-        margin: 0;
-        padding: 0 16px;
         display: flex;
-        justify-content: center; /* 가로 방향 정렬
-    
+        justify-content: center;
+        align-items: center;
         overflow-x: hidden; /* 수평 스크롤을 숨김 */
+        background-color: #f8f8f8;
     }
 
     #root {
-        max-width: 375px; /* 모바일 뷰의 최대 너비를 고정 */
         width: 100%;
-        margin: 0 auto; /* 가운데 정렬 */
     }
 `;
 
