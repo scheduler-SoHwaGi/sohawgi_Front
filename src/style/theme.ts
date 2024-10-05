@@ -15,13 +15,42 @@ const theme: DefaultTheme = {
     
   },
   fonts: {
-    heading_01: css`
+    Body_01: css`
       font-family: 'Pretendard';
-      font-size: 2.2rem;
+      font-size: 19px;
       font-style: normal;
       font-weight: 600;
       line-height: 150%;
     `,
+    Body_02: css`
+      font-family: 'Pretendard';
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    `,
+    Body_03: css`
+      font-family: 'Pretendard';
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    `,
+    Body_04: css`
+      font-family: 'Pretendard';
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    `,
+    Body_05: css`
+      font-family: 'Pretendard';
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 150%;
+    `,
+
   }
 };
 

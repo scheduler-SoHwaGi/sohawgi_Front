@@ -14,7 +14,12 @@ declare module 'styled-components' {
       White: string;
     };
     fonts: {
-      heading_01: CSSProp;
+      Body_01: CSSProp;
+      Body_02: CSSProp;
+      Body_03: CSSProp;
+      Body_04: CSSProp;
+      Body_05: CSSProp;
+
     };
   }
 }
