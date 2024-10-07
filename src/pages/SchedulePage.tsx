@@ -1,9 +1,10 @@
 import React from "react";
+import TextField from '../components/TextField/TextField.tsx';
 
 const SchedulePage = () => {
     return (
         <div>
-            스케줄 페이지
+            <TextField></TextField>
         </div>
     );
 };
