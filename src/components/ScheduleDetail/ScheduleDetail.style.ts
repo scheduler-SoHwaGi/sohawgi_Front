@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center; /* 이미지와 정보의 수직 정렬 */
   justify-content: flex-start; /* 왼쪽 정렬 */
   gap: 0.9rem; /* 이미지와 정보 사이에 간격 추가 */
+  width: 100%;
 `;
 
 export const Image = styled.img`
