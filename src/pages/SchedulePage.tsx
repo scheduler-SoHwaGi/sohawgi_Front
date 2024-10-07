@@ -1,11 +1,13 @@
 import React from "react";
 import styled from 'styled-components';
 import TextField from '../components/TextField/TextField.tsx';
+import ScheduleDetail from '../components/ScheduleDetail/ScheduleDetail.tsx';
 
 const SchedulePage = () => {
     return (
         <Container>
-            <TextField />
+        
+            <ScheduleDetail></ScheduleDetail>
         </Container>
     );
 };
