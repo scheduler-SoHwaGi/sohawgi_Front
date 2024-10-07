@@ -18,7 +18,7 @@ export const InfoContainer = styled.div`
   /* 날짜와 내용 정보 컨테이너 스타일 */
   display: flex; /* 자식 요소를 가로로 배치 */
   flex-direction: column; /* 가로 방향 정렬 */
-  gap: 0rem; /* 날짜와 내용 사이에 간격 추가 */
+  gap: 0.05rem; /* 날짜와 내용 사이에 간격 추가 */
 `;
 
 export const DateText = styled.div`
