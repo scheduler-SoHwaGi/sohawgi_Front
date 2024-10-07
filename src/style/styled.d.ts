@@ -5,12 +5,12 @@ import { CSSProp } from 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
-      Gray_01: string;
-      Gray_02: string;
-      Gray_03: string;
-      Gray_04: string;
-      Gray_05: string;
-      Gray_06: string;
+      Grey_01: string;
+      Grey_02: string;
+      Grey_03: string;
+      Grey_04: string;
+      Grey_05: string;
+      Grey_06: string;
       White: string;
     };
     fonts: {

@@ -3,12 +3,12 @@ import { DefaultTheme, css } from 'styled-components';
 
 const theme: DefaultTheme = {
   colors: {
-    Gray_01: "#F1F4F5",
-    Gray_02: "#E4E5E8",
-    Gray_03: "#DADDE0",
-    Gray_04: "#9EA4B6",
-    Gray_05: "#74767C",
-    Gray_06: "#343845",
+    Grey_01: "#F1F4F5",
+    Grey_02: "#E4E5E8",
+    Grey_03: "#DADDE0",
+    Grey_04: "#9EA4B6",
+    Grey_05: "#74767C",
+    Grey_06: "#343845",
     White: "#FFFFFF",
     
 
