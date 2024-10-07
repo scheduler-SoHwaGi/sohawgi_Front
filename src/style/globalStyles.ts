@@ -74,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
         justify-content: center;
         align-items: center;
         overflow-x: hidden; /* 수평 스크롤을 숨김 */
-        background-color: #f8f8f8;
+        background-color: ${({ theme }) => theme.colors.Grey_01};
     }
 
     #root {
