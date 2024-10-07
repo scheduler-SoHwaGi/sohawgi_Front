@@ -13,6 +13,15 @@ const ScheduleCard = () => {
                 <ScheduleDetail />
                 <ScheduleDetail />
                 <ScheduleDetail />
+                <ScheduleDetail />
+                <ScheduleDetail />
+                <ScheduleDetail />
+                <ScheduleDetail />
+                <ScheduleDetail />
+                <ScheduleDetail />
+                <ScheduleDetail />
+                <ScheduleDetail />
+                
             </S.GridContainer>
         </S.WrapperContainer>
     );
