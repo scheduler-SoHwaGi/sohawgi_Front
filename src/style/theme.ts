@@ -38,7 +38,7 @@ const theme: DefaultTheme = {
     `,
     Body_04: css`
       font-family: 'Pretendard';
-      font-size: 0.8125rem;
+      font-size: 13px;
       font-style: normal;
       font-weight: 600;
       line-height: 1rem;
