@@ -11,7 +11,7 @@ const TextField: React.FC = () => {
         placeholder="일정을 입력하세요"
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        isFocused={isFocused}
+        //isFocused={isFocused}
       />
       <S.Button type="submit">등록</S.Button>
     </S.Form>

@@ -38,10 +38,10 @@ const theme: DefaultTheme = {
     `,
     Body_04: css`
       font-family: 'Pretendard';
-      font-size: 13px;
+      font-size: 0.8125rem;
       font-style: normal;
       font-weight: 600;
-      line-height: 150%;
+      line-height: 1rem;
     `,
     Body_05: css`
       font-family: 'Pretendard';
