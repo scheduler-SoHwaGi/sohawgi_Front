@@ -30,21 +30,7 @@ const ContentWrapper = styled.div`
   white-space: normal;
 `;
 
-// 하단바 스타일
-const BottomNavWrapper = styled(BottomNavi)`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-width: 420px;
-  height: 60px;
-  background-color: #f8f8f8;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid #ccc;
-`;
+
 
 function App() {
   return (
