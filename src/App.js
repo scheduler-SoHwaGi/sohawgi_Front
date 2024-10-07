@@ -22,7 +22,7 @@ const Container = styled.div`
 
 // 콘텐츠를 감싸는 래퍼에 패딩 적용
 const ContentWrapper = styled.div`
-  padding: 0 16px;
+  padding: 0 1.13rem;
   flex: 1;
   overflow-x: hidden;
   word-wrap: break-word;
@@ -45,7 +45,7 @@ function App() {
               <Route path="/PlusPage" element={<PlusPage />} />
             </Routes>
           </ContentWrapper>
-          <BottomNavWrapper /> {/* 하단바를 배치 */}
+          <BottomNavi /> {/* 하단바를 배치 */}
         </Container>
       </Router>
     </ThemeProvider>
