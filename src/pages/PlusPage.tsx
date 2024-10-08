@@ -1,12 +1,11 @@
 import React from "react";
 import styled from 'styled-components';
+import BottomSheet from "../components/BottomSheet/BottomSheet.tsx";
 
 
 const PlusPage = () => {
     return (
-        <div>
-            안녕
-        </div>
+        <BottomSheet></BottomSheet>
         
         
     );
