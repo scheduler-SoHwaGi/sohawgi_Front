@@ -64,21 +64,34 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
     }
 
-
-    body {
+    html, body {
         margin: 0;
         padding: 0;
         width: 100%;
-        min-height: 100vh;
+        height: 100%;
+        overflow: auto; /* 스크롤 가능 */
+        background-color: ${({ theme }) => theme.colors.Grey_01};
+    }
+
+    /* Webkit 기반 브라우저에서 스크롤바를 숨김 */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Firefox에서 스크롤바 숨기기 */
+    body {
+        scrollbar-width: none; /* Firefox 전용 */
+    }
+
+    body {
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow-x: hidden; /* 수평 스크롤을 숨김 */
-        background-color: ${({ theme }) => theme.colors.Grey_01};
     }
 
     #root {
         width: 100%;
+        height: 100%;
     }
 `;
 
