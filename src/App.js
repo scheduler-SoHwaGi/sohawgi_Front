@@ -12,7 +12,7 @@ import PlusPage from './pages/PlusPage.tsx';
 
 // 상위 컨테이너 스타일
 const Container = styled.div`
-  max-width: 420px;
+  max-width: 450px;
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -6,7 +6,7 @@ export const BottomNavWrapper = styled.nav`
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-width: 420px; /* 모바일 뷰의 최대 너비 */
+  max-width: 450px; /* 모바일 뷰의 최대 너비 */
   height: 60px;
   background-color: #f8f8f8;
   display: flex;
