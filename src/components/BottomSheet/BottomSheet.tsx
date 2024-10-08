@@ -12,7 +12,8 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
   return (
     <Sheet 
       isOpen={isOpen} 
-      onClose={onClose}
+      onClose={onClose}  // 이 부분은 Sheet.Backdrop에서도 사용됨
+      snapPoints={[0.5, 0.75]}  // 바텀시트의 스냅 포인트를 설정 (optional)
     >
       <Sheet.Container
         style={{
@@ -32,17 +33,18 @@ const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose }) => {
         <Sheet.Header />
         <Sheet.Content>
           <Sheet.Scroller>
-          <S.DeleteContainer>
+            <S.DeleteContainer>
               <S.DeleteIcon src={Delete} alt="delete icon" />
               <S.DeleteText>삭제하기</S.DeleteText>
             </S.DeleteContainer>
           </Sheet.Scroller>
         </Sheet.Content>
       </Sheet.Container>
-      <Sheet.Backdrop />
+
+      {/* Backdrop 클릭 시 자동으로 onClose 실행 */}
+      <Sheet.Backdrop onTap={onClose} />
     </Sheet>
   );
 };
 
 export default BottomSheet;
-
