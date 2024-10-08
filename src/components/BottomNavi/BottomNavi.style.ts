@@ -8,18 +8,19 @@ export const StyledLink = styled(Link)`
 
 
 export const BottomNavWrapper = styled.div`
+  position: fixed; /* 하단에 고정 */
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.White}; /* 배경 흰색 */
   height: 4rem;
-  padding-bottom: 1.8rem; /* 원하는 여백 높이 */
+  padding: 0 1rem 2rem 1rem; /* 좌우 여백 1rem, 하단 여백 2rem */
   border-top: 1px solid ${({ theme }) => theme.colors.Grey_03}; /* 상단에 얇은 회색선 추가 */
-  box-shadow: none; /* 검은 배경(그림자) 제거 */
+  box-shadow: none;
   z-index: 1000;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 0.3rem;
 `;
 
 export const ScheduleContainer = styled.div`
