@@ -31,6 +31,21 @@ const ScheduleCard = () => {
         <div onClick={handleOpenSheet}>
           <ScheduleDetail />
         </div>
+        <div onClick={handleOpenSheet}>
+          <ScheduleDetail />
+        </div>
+        <div onClick={handleOpenSheet}>
+          <ScheduleDetail />
+        </div>
+        <div onClick={handleOpenSheet}>
+          <ScheduleDetail />
+        </div>
+        <div onClick={handleOpenSheet}>
+          <ScheduleDetail />
+        </div>
+        <div onClick={handleOpenSheet}>
+          <ScheduleDetail />
+        </div>
       </S.GridContainer>
 
       {/* 바텀시트 컴포넌트 */}
