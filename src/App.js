@@ -7,7 +7,7 @@ import GlobalStyle from './style/globalStyles.ts';
 import BottomNavi from './components/BottomNavi/BottomNavi.tsx';
 
 // 페이지 컴포넌트 import
-import SchedulePage from '/Users/gunayeon/Documents/sohwagi/sohwagi/src/pages/SchedulePage/SchedulePage.tsx';
+import SchedulePage from 'sohwagi/src/pages/SchedulePage/SchedulePage.tsx';
 import PlusPage from './pages/PlusPage.tsx';
 
 // 상위 컨테이너 스타일
