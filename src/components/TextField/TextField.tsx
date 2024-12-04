@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as S from './TextField.style.ts';
+import * as S from './TextField.style';
 
 const TextField: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);

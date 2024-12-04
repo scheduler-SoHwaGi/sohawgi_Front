@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import * as S from './BottomNavi.style.ts';
+import * as S from './BottomNavi.style';
 import plus_act from '../../assets/images/BottomNavi/plus_act.svg';
 import plus_nonact from '../../assets/images/BottomNavi/plus_nonact.svg';
 import schedule_act from '../../assets/images/BottomNavi/schedule_act.svg';

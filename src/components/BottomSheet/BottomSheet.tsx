@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sheet } from 'react-modal-sheet';
 import Delete from '../../assets/images/delete.svg';
-import * as S from './BottomSheet.style.ts'; 
+import * as S from './BottomSheet.style';
 
 interface BottomSheetProps {
   isOpen: boolean;

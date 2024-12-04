@@ -1,6 +1,6 @@
 import React from 'react';
 import hamtori from '../../assets/images/hamtori.svg';
-import * as S from './ScheduleDetail.style.ts';
+import * as S from './ScheduleDetail.style';
 
 const ScheduleDetail = () => {
     return (
