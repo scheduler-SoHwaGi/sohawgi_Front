@@ -6,12 +6,8 @@ import * as S from './ScheduleCard.style.ts';
 const ScheduleCard = () => {
   const [isSheetOpen, setSheetOpen] = useState<boolean>(false);
 
-  const handleOpenSheet = () => {
-    setSheetOpen(true);
-  };
-
-  const handleCloseSheet = () => {
-    setSheetOpen(false);
+  const handleSheet = () => {
+    setSheetOpen(!isSheetOpen);
   };
 
   return (
@@ -19,37 +15,37 @@ const ScheduleCard = () => {
       <S.Title>일정</S.Title> {/* Title 컴포넌트를 사용하여 스타일 적용 */}
       <S.GridContainer>
         {/* 여러 개의 ScheduleDetail 컴포넌트를 그리드로 나열 */}
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
-        <div onClick={handleOpenSheet}>
+        <div onClick={handleSheet}>
           <ScheduleDetail />
         </div>
       </S.GridContainer>
 
       {/* 바텀시트 컴포넌트 */}
-      <BottomSheet isOpen={isSheetOpen} onClose={handleCloseSheet} />
+      <BottomSheet isOpen={isSheetOpen} onClose={handleSheet} />
     </S.WrapperContainer>
   );
 };
