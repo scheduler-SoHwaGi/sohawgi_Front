@@ -6,11 +6,12 @@
       "esnext"
     ],
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+
   },
   "include": [
     "src/**/*"
