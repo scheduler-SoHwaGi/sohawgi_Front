@@ -1,16 +1,26 @@
 import React from 'react';
 
-import hamtori from '../../assets/images/hamtori.svg';
-import appleIcon from '../../assets/images/appleIcon.png';
-
+// import css
 import * as S from './PlusPage.style';
+
+//import Components
 import UserProfile from '../../components/UserProfile/UserProfile';
+import AddPageContainer from '../../components/AddPageContainer/AddPageContainer';
+import VersionInfo from '../../components/VersionInfo/VersionInfo';
 
 const PlusPage = () => {
+  const addPageInfoTitles = ['서비스 이용약관', '개인정보 처리방침'];
+  const addPageSettingTitles = ['로그아웃', '회원탈퇴'];
+
   return (
-    <>
+    <S.AddPageContainer>
       <UserProfile />
-    </>
+      <S.AddPageBelowContainer>
+        <AddPageContainer title={'정보'} contentTitles={addPageInfoTitles} />
+        <AddPageContainer title={'설정'} contentTitles={addPageSettingTitles} />
+      </S.AddPageBelowContainer>
+      <VersionInfo />
+    </S.AddPageContainer>
   );
 };
 
