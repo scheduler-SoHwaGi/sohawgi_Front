@@ -16,20 +16,16 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 100vh;
+  height: 100vh;
 `;
 
 // 콘텐츠를 감싸는 래퍼에 패딩 적용
 const ContentWrapper = styled.div`
-  //padding: 0 1.13rem;
-  //width: 100%;
-  //max-width: 450px;
-  //flex: 1;
-  //overflow-x: hidden;
   word-wrap: break-word;
   word-break: break-all;
   white-space: normal;
   min-width: 340px;
+  height: 100%;
 `;
 
 function App() {
