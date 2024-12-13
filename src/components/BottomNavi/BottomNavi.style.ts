@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 export const StyledLink = styled(Link)`
   text-decoration: none; /* Link 자체의 밑줄 제거 */
 `;
-
 
 export const BottomNavWrapper = styled.div`
   position: fixed; /* 하단에 고정 */
@@ -36,9 +34,10 @@ export const ScheduleIcon = styled.img`
   margin-bottom: 4px;
 `;
 
-export const ScheduleText = styled.span<{ isActive: boolean }>`
+export const ScheduleText = styled.span<{ $isActive: boolean }>`
   font-size: ${({ theme }) => theme.fonts.Body_05};
-  color: ${({ isActive, theme }) => (isActive ? theme.colors.Grey_06 : theme.colors.Grey_02)};
+  color: ${({ $isActive, theme }) =>
+    $isActive ? theme.colors.Grey_06 : theme.colors.Grey_02};
   text-decoration: none; /* 밑줄 제거 */
 `;
 
@@ -55,10 +54,9 @@ export const MoreIcon = styled.img`
   margin-bottom: 4px;
 `;
 
-export const MoreText = styled.span<{ isActive: boolean }>`
+export const MoreText = styled.span<{ $isActive: boolean }>`
   font-size: ${({ theme }) => theme.fonts.Body_05};
-  color: ${({ isActive,theme }) => (isActive ? theme.colors.Grey_06 : theme.colors.Grey_02)};
+  color: ${({ $isActive, theme }) =>
+    $isActive ? theme.colors.Grey_06 : theme.colors.Grey_02};
   text-decoration: none; /* 밑줄 제거 */
 `;
-
-
