@@ -22,7 +22,7 @@ jobs:
           echo "${{ secrets.APPLICATION_ENV }}" | base64 --decode > .env
           
       - name: Create output
-        id: sh ./build.sh
+        run: sh ./build.sh
         
       - name: Extract branch name
         id: extract_branch
