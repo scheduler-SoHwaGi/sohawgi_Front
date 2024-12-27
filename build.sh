@@ -1,5 +1,12 @@
 #!/bin/sh
+set -e
+
 cd ../
 mkdir output
-cp -R ./sohawgi-front/* ./output
-cp -R ./output ./sohawgi-front/
+cp -R ./sohawgi_Front/* ./output
+cp -R ./output ./sohawgi_Front/
+
+cd sohawgi_Front || exit 1
+
+npm install
+npm run build
