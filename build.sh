@@ -9,4 +9,4 @@ cp -R ./output ./sohawgi_Front/
 cd sohawgi_Front || exit 1
 
 npm install
-npm run build
+CI=false npm run build
