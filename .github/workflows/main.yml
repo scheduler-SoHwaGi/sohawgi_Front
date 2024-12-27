@@ -36,7 +36,7 @@ jobs:
         with:
           source-directory: "output"
           destination-github-username: "urimeee"
-          destination-repository-name: "sohawgi-Front"
+          destination-repository-name: "sohawgi_Front"
           user-email: ${{ secrets.EMAIL }}
           commit-message: |
             ${{ github.event.commits[0].message }} / ${{ github.run_id }}
