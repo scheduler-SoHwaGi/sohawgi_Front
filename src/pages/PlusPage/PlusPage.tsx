@@ -7,7 +7,7 @@ import * as S from './PlusPage.style';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import AddPageContainer from '../../components/AddPageContainer/AddPageContainer';
 import VersionInfo from '../../components/VersionInfo/VersionInfo';
-import { UserInfo } from '../../custom';
+import { UserInfo } from '../../types/userInfo';
 
 const PlusPage = () => {
   const addPageInfoTitles = ['서비스 이용약관', '개인정보 처리방침'];
@@ -15,6 +15,7 @@ const PlusPage = () => {
   const [userInfo, setUserInfo] = useState<UserInfo>({});
 
   useEffect(() => {
+    console.log(window.receiveUserInfo);
     window.receiveUserInfo = (info: UserInfo) => {
       setUserInfo(info);
       console.log(userInfo);
