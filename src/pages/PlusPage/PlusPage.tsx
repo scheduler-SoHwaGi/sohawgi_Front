@@ -15,12 +15,17 @@ const PlusPage = () => {
 
   return (
     <S.AddPageContainer>
-      <UserProfile />
-      <S.AddPageBelowContainer>
-        <AddPageContainer title={'정보'} contentTitles={addPageInfoTitles} />
-        <AddPageContainer title={'설정'} contentTitles={addPageSettingTitles} />
-      </S.AddPageBelowContainer>
-      <VersionInfo />
+      <S.AddPageContentContainer>
+        <UserProfile />
+        <S.AddPageBelowContainer>
+          <AddPageContainer title={'정보'} contentTitles={addPageInfoTitles} />
+          <AddPageContainer
+            title={'설정'}
+            contentTitles={addPageSettingTitles}
+          />
+        </S.AddPageBelowContainer>
+        <VersionInfo />
+      </S.AddPageContentContainer>
     </S.AddPageContainer>
   );
 };

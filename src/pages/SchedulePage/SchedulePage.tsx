@@ -24,16 +24,12 @@ const SchedulePage = () => {
     };
   }, []);
 
-  const buttonOnClick = () => {
-    console.log(userInfo);
-  };
-
   return (
     <S.Container>
-      <button onClick={buttonOnClick}>버튼</button>
-
-      <TextField />
-      <ScheduleCard />
+      <S.SchedulePageContent>
+        <TextField />
+        <ScheduleCard />
+      </S.SchedulePageContent>
     </S.Container>
   );
 };
