@@ -7,7 +7,6 @@ const SchedulePage = () => {
   const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
-    // WebView가 로드 완료되었음을 Swift에 알림
     if (
       window.webkit &&
       window.webkit.messageHandlers &&
@@ -16,7 +15,6 @@ const SchedulePage = () => {
       window.webkit.messageHandlers.webViewReady.postMessage('WebViewReady');
     }
 
-    // receiveUserInfo 함수 정의
     window.receiveUserInfo = function (info) {
       console.log('Received info:', info);
       setUserInfo(info);

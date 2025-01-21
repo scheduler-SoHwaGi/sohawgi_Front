@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import * as S from './TextField.style';
 
 const TextField: React.FC = () => {
@@ -7,18 +8,16 @@ const TextField: React.FC = () => {
 
   const postSchedule = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
-      const response = await fetch(
-        'http://15.165.191.48:8080/api/v1/schedules',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Nickname': 'jini',
-          },
-          credentials: 'include',
-          body: JSON.stringify({ text: schedule }),
+      const response = await fetch(`${process.env.BASE_SERVER_URL}/schedules`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-ACCESS-TOKEN': `${process.env['X-ACCESS-TOKEN']}`,
+          'X-REFRESH-TOKEN': `${process.env['X-REFRESH-TOKEN']}`,
         },
-      );
+        credentials: 'include',
+        body: JSON.stringify({ text: schedule }),
+      });
       if (!response.ok) {
         throw new Error(response.statusText);
       }

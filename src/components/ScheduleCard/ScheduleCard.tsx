@@ -21,17 +21,15 @@ const ScheduleCard = () => {
 
   const getSchedules = async () => {
     try {
-      const response = await fetch(
-        'http://15.165.191.48:8080/api/v1/schedules',
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Nickname': 'jini',
-          },
-          credentials: 'include',
+      const response = await fetch(`${process.env.BASE_SERVER_URL}/schedules`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-ACCESS-TOKEN': `${process.env['X-ACCESS-TOKEN']}`,
+          'X-REFRESH-TOKEN': `${process.env['X-REFRESH-TOKEN']}`,
         },
-      );
+        credentials: 'include',
+      });
 
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -39,14 +37,14 @@ const ScheduleCard = () => {
 
       const data = await response.json();
       console.log(response);
-      // setScheduleList(data);
+      setScheduleList(data);
     } catch (e) {
       console.log(e);
     }
   };
 
   useEffect(() => {
-    // getSchedules();
+    getSchedules();
   }, []);
 
   return (
