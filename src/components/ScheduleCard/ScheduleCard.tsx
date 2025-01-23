@@ -21,15 +21,18 @@ const ScheduleCard = () => {
 
   const getSchedules = async () => {
     try {
-      const response = await fetch(`${process.env.BASE_SERVER_URL}/schedules`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-ACCESS-TOKEN': `${process.env['X-ACCESS-TOKEN']}`,
-          'X-REFRESH-TOKEN': `${process.env['X-REFRESH-TOKEN']}`,
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_SERVER_URL}/schedules`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-ACCESS-TOKEN': `${process.env.REACT_APP_X_ACCESS_TOKEN}`,
+            'X-REFRESH-TOKEN': `${process.env.REACT_APP_X_REFRESH_TOKEN}`,
+          },
+          credentials: 'include',
         },
-        credentials: 'include',
-      });
+      );
 
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -49,9 +52,8 @@ const ScheduleCard = () => {
 
   return (
     <S.WrapperContainer>
-      <S.Title>일정</S.Title> {/* Title 컴포넌트를 사용하여 스타일 적용 */}
+      <S.Title>일정</S.Title>
       <S.GridContainer>
-        {/* 여러 개의 ScheduleDetail 컴포넌트를 그리드로 나열 */}
         {scheduleList.map((schedule) => (
           <div key={schedule.scheduleId}>
             <ScheduleDetail
@@ -63,7 +65,6 @@ const ScheduleCard = () => {
           </div>
         ))}
       </S.GridContainer>
-      {/* 바텀시트 컴포넌트 */}
       <BottomSheet isOpen={isSheetOpen} onClose={handleSheet} />
     </S.WrapperContainer>
   );

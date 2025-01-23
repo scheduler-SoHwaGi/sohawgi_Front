@@ -8,16 +8,19 @@ const TextField: React.FC = () => {
 
   const postSchedule = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
-      const response = await fetch(`${process.env.BASE_SERVER_URL}/schedules`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-ACCESS-TOKEN': `${process.env['X-ACCESS-TOKEN']}`,
-          'X-REFRESH-TOKEN': `${process.env['X-REFRESH-TOKEN']}`,
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_SERVER_URL}/schedules`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-ACCESS-TOKEN': `${process.env.REACT_APP_X_ACCESS_TOKEN}`,
+            'X-REFRESH-TOKEN': `${process.env.REACT_APP_X_REFRESH_TOKEN}`,
+          },
+          credentials: 'include',
+          body: JSON.stringify({ text: schedule }),
         },
-        credentials: 'include',
-        body: JSON.stringify({ text: schedule }),
-      });
+      );
       if (!response.ok) {
         throw new Error(response.statusText);
       }
@@ -37,7 +40,7 @@ const TextField: React.FC = () => {
         onBlur={() => setIsFocused(false)}
         onChange={(e) => setSchedule(e.target.value)}
       />
-      <S.Button type="submit" onClick={postSchedule}>
+      <S.Button type="button" onClick={postSchedule}>
         등록
       </S.Button>
     </S.Form>
