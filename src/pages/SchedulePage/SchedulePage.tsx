@@ -18,6 +18,13 @@ const SchedulePage = () => {
     window.receiveUserInfo = function (info) {
       console.log('Received info:', info);
       setUserInfo(info);
+      localStorage.setItem('userID', JSON.stringify(info.userID));
+      localStorage.setItem('accessToken', JSON.stringify(info.accessToken));
+      localStorage.setItem('refreshToken', JSON.stringify(info.refreshToken));
+      localStorage.setItem(
+        'authorizationCode',
+        JSON.stringify(info.authorizationCode),
+      );
       return info;
     };
   }, []);
