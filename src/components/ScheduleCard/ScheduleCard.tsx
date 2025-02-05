@@ -21,18 +21,17 @@ const ScheduleCard = () => {
 
   const getSchedules = async () => {
     try {
-      const response = await fetch(
-        `${process.env.REACT_APP_BASE_SERVER_URL}/schedules`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-ACCESS-TOKEN': `${process.env.REACT_APP_X_ACCESS_TOKEN}`,
-            'X-REFRESH-TOKEN': `${process.env.REACT_APP_X_REFRESH_TOKEN}`,
-          },
-          credentials: 'include',
+      const accessToken = localStorage.getItem('accessToken');
+      const refreshToken = localStorage.getItem('refreshToken');
+      const response = await fetch(`${accessToken}/schedules`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-ACCESS-TOKEN': `${process.env.REACT_APP_X_ACCESS_TOKEN}`,
+          'X-REFRESH-TOKEN': `${process.env.REACT_APP_X_REFRESH_TOKEN}`,
         },
-      );
+        credentials: 'include',
+      });
 
       if (!response.ok) {
         throw new Error(response.statusText);
