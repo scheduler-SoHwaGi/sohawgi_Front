@@ -6,8 +6,6 @@ import ScheduleCard from '../../components/ScheduleCard/ScheduleCard';
 import * as S from './SchedulePage.style';
 
 const SchedulePage = () => {
-  const [userInfo, setUserInfo] = useState();
-
   useEffect(() => {
     if (
       window.webkit &&
@@ -19,7 +17,7 @@ const SchedulePage = () => {
 
     window.receiveUserInfo = function (info) {
       console.log('Received info:', info);
-      setUserInfo(info);
+      
       localStorage.setItem('userID', JSON.stringify(info.userID));
       localStorage.setItem('accessToken', JSON.stringify(info.accessToken));
       localStorage.setItem('refreshToken', JSON.stringify(info.refreshToken));
