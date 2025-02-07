@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ScheduleDetail from '../ScheduleDetail/ScheduleDetail'; // ScheduleDetail 컴포넌트 경로에 맞게 수정
 import BottomSheet from '../BottomSheet/BottomSheet'; // BottomSheet 컴포넌트 불러오기
 import * as S from './ScheduleCard.style';
+import { api } from '../../utils/axios';
 
 interface Schedule {
   scheduleId: number;
@@ -23,23 +24,15 @@ const ScheduleCard = () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
       const refreshToken = localStorage.getItem('refreshToken');
-      const response = await fetch(`${accessToken}/schedules`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-ACCESS-TOKEN': `${process.env.REACT_APP_X_ACCESS_TOKEN}`,
-          'X-REFRESH-TOKEN': `${process.env.REACT_APP_X_REFRESH_TOKEN}`,
-        },
-        credentials: 'include',
-      });
+      const response = await api.get('/schedules');
 
-      if (!response.ok) {
+      if (response.data.length < 0) {
         throw new Error(response.statusText);
       }
 
-      const data = await response.json();
-      console.log(response);
-      setScheduleList(data);
+      // const data = await response.json();
+      console.log(response.data);
+      setScheduleList(response.data);
     } catch (e) {
       console.log(e);
     }
