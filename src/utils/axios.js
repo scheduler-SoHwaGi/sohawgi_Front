@@ -1,19 +1,22 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: `${process.env.REACT_APP_BACKEND_URL}`,
+export const api = axios.create({
+  baseURL: `${process.env.REACT_APP_BASE_SERVER_URL}`,
   headers: {
     'content-type': 'application/json',
-    withCredentials: true,
   },
 });
 
 // 요청 인터셉터
 api.interceptors.request.use(
   (config) => {
-    const accessToken = localStorage.getItem('accessToken');
+    // const accessToken = localStorage.getItem('accessToken');
+    const accessToken = `${process.env.REACT_APP_X_ACCESS_TOKEN}`;
+    const refreshToken = `${process.env.REACT_APP_X_REFRESH_TOKEN}`;
+
     if (accessToken) {
-      config.headers['Authorization'] = `${accessToken}`;
+      config.headers['X-ACCESS-TOKEN'] = `${accessToken}`;
+      config.headers['X-REFRESH-TOKEN'] = `${refreshToken}`;
     }
     return config;
   },
@@ -27,14 +30,15 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
-      // 401 에러일 때
+    if (error.response.status === 403 && !originalRequest._retry) {
+      // 만료된 access token일 때
       originalRequest._retry = true;
 
       try {
-        const refreshToken = localStorage.getItem('refreshToken');
+        const refreshToken = `${process.env.REACT_APP_X_REFRESH_TOKEN}`;
         if (refreshToken) {
-          originalRequest.headers['Authorization'] = `${refreshToken}`;
+          originalRequest.headers['New-access-token'] =
+            `${process.env.REACT_APP_NEW_ACCESS_TOKEN}`;
         }
         return axios(originalRequest);
       } catch (error) {
