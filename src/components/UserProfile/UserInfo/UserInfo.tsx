@@ -1,14 +1,19 @@
+import React from 'react';
 import appleIcon from '../../../assets/images/appleIcon.png';
 import * as S from './UserInfo.style';
-import React from 'react';
 
-const UserInfo = () => {
+type Props = {
+  name: string;
+  email: string;
+};
+
+const UserInfo = ({ name, email }: Props) => {
   return (
     <div>
-      <div>구나연</div>
+      <div>{name}</div>
       <S.InfoContainer>
         <S.appleImg src={appleIcon} alt={'appleIcon'} />
-        <div>abc@naver.com</div>
+        <div>{email}</div>
       </S.InfoContainer>
     </div>
   );

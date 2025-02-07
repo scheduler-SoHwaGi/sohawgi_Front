@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { api } from '../../utils/axios';
+
 // import css
 import * as S from './PlusPage.style';
 
@@ -7,16 +9,40 @@ import * as S from './PlusPage.style';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import AddPageContainer from '../../components/AddPageContainer/AddPageContainer';
 import VersionInfo from '../../components/VersionInfo/VersionInfo';
-// import { UserInfo } from '../../types/userInfo';
+
+interface UserInfo {
+  name: string;
+  email: string;
+}
+
+type Props = {
+  name: string;
+  email: string;
+};
 
 const PlusPage = () => {
   const addPageInfoTitles = ['서비스 이용약관', '개인정보 처리방침'];
   const addPageSettingTitles = ['로그아웃', '회원탈퇴'];
+  const [user, setUser] = useState<UserInfo | null>();
+
+  const getUserInfo = async () => {
+    try {
+      const response = await api.get('/users/me');
+      console.log(response.data);
+      setUser(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
 
   return (
     <S.AddPageContainer>
       <S.AddPageContentContainer>
-        <UserProfile />
+        <UserProfile name={user?.name} email={user?.email} />
         <S.AddPageBelowContainer>
           <AddPageContainer title={'정보'} contentTitles={addPageInfoTitles} />
           <AddPageContainer
