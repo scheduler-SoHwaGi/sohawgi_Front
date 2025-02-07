@@ -28,7 +28,6 @@ const PlusPage = () => {
   const getUserInfo = async () => {
     try {
       const response = await api.get('/users/me');
-      console.log(response.data);
       setUser(response.data);
     } catch (e) {
       console.error(e);
