@@ -14,7 +14,7 @@ interface Schedule {
 
 const ScheduleCard = () => {
   const [isSheetOpen, setSheetOpen] = useState<boolean>(false);
-  const [scheduleList, setScheduleList] = useState<Schedule[]>([]);
+  const [scheduleList, setScheduleList] = useState<Schedule[] | null>([]);
 
   const handleSheet = () => {
     setSheetOpen(!isSheetOpen);
@@ -46,7 +46,7 @@ const ScheduleCard = () => {
     <S.WrapperContainer>
       <S.Title>일정</S.Title>
       <S.GridContainer>
-        {scheduleList.map((schedule) => (
+        {scheduleList?.map((schedule) => (
           <div key={schedule.scheduleId}>
             <ScheduleDetail
               title={schedule.title}
