@@ -58,5 +58,5 @@ export const MoreText = styled.span<{ $isActive: boolean }>`
   font-size: ${({ theme }) => theme.fonts.Body_05};
   color: ${({ $isActive, theme }) =>
     $isActive ? theme.colors.Grey_06 : theme.colors.Grey_02};
-  text-decoration: none; /* 밑줄 제거 */
+  text-decoration: none;
 `;
