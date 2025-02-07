@@ -6,8 +6,8 @@ export const StyledLink = styled(Link)`
 `;
 
 export const BottomNavWrapper = styled.div`
-  position: fixed; /* 하단에 고정 */
-  bottom: 0;
+  position: fixed;
+  bottom: env(safe-area-inset-bottom);
   left: 0;
   right: 0;
   display: flex;
@@ -58,5 +58,5 @@ export const MoreText = styled.span<{ $isActive: boolean }>`
   font-size: ${({ theme }) => theme.fonts.Body_05};
   color: ${({ $isActive, theme }) =>
     $isActive ? theme.colors.Grey_06 : theme.colors.Grey_02};
-  text-decoration: none; /* 밑줄 제거 */
+  text-decoration: none;
 `;

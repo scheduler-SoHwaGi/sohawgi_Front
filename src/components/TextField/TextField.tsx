@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import * as S from './TextField.style';
 
 const TextField: React.FC = () => {
@@ -8,12 +9,13 @@ const TextField: React.FC = () => {
   const postSchedule = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
       const response = await fetch(
-        'http://15.165.191.48:8080/api/v1/schedules',
+        `${process.env.REACT_APP_BASE_SERVER_URL}/schedules`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Nickname': 'jini',
+            'X-ACCESS-TOKEN': `${process.env.REACT_APP_X_ACCESS_TOKEN}`,
+            'X-REFRESH-TOKEN': `${process.env.REACT_APP_X_REFRESH_TOKEN}`,
           },
           credentials: 'include',
           body: JSON.stringify({ text: schedule }),
@@ -38,7 +40,7 @@ const TextField: React.FC = () => {
         onBlur={() => setIsFocused(false)}
         onChange={(e) => setSchedule(e.target.value)}
       />
-      <S.Button type="submit" onClick={postSchedule}>
+      <S.Button type="button" onClick={postSchedule}>
         등록
       </S.Button>
     </S.Form>

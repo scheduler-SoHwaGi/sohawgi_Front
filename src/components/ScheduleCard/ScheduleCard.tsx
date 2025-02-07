@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ScheduleDetail from '../ScheduleDetail/ScheduleDetail'; // ScheduleDetail 컴포넌트 경로에 맞게 수정
 import BottomSheet from '../BottomSheet/BottomSheet'; // BottomSheet 컴포넌트 불러오기
 import * as S from './ScheduleCard.style';
+import { api } from '../../utils/axios';
 
 interface Schedule {
   scheduleId: number;
@@ -13,7 +14,7 @@ interface Schedule {
 
 const ScheduleCard = () => {
   const [isSheetOpen, setSheetOpen] = useState<boolean>(false);
-  const [scheduleList, setScheduleList] = useState<Schedule[]>([]);
+  const [scheduleList, setScheduleList] = useState<Schedule[] | null>([]);
 
   const handleSheet = () => {
     setSheetOpen(!isSheetOpen);
@@ -21,40 +22,31 @@ const ScheduleCard = () => {
 
   const getSchedules = async () => {
     try {
-      const response = await fetch(
-        'http://15.165.191.48:8080/api/v1/schedules',
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Nickname': 'jini',
-          },
-          credentials: 'include',
-        },
-      );
+      const accessToken = localStorage.getItem('accessToken');
+      const refreshToken = localStorage.getItem('refreshToken');
+      const response = await api.get('/schedules');
 
-      if (!response.ok) {
+      if (response.data.length < 0) {
         throw new Error(response.statusText);
       }
 
-      const data = await response.json();
-      console.log(response);
-      // setScheduleList(data);
+      // const data = await response.json();
+      console.log(response.data);
+      setScheduleList(response.data);
     } catch (e) {
       console.log(e);
     }
   };
 
   useEffect(() => {
-    // getSchedules();
+    getSchedules();
   }, []);
 
   return (
     <S.WrapperContainer>
-      <S.Title>일정</S.Title> {/* Title 컴포넌트를 사용하여 스타일 적용 */}
+      <S.Title>일정</S.Title>
       <S.GridContainer>
-        {/* 여러 개의 ScheduleDetail 컴포넌트를 그리드로 나열 */}
-        {scheduleList.map((schedule) => (
+        {scheduleList?.map((schedule) => (
           <div key={schedule.scheduleId}>
             <ScheduleDetail
               title={schedule.title}
@@ -65,7 +57,6 @@ const ScheduleCard = () => {
           </div>
         ))}
       </S.GridContainer>
-      {/* 바텀시트 컴포넌트 */}
       <BottomSheet isOpen={isSheetOpen} onClose={handleSheet} />
     </S.WrapperContainer>
   );
