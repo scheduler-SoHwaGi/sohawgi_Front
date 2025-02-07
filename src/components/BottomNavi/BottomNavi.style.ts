@@ -6,8 +6,8 @@ export const StyledLink = styled(Link)`
 `;
 
 export const BottomNavWrapper = styled.div`
-  position: fixed; /* 하단에 고정 */
-  bottom: 0;
+  position: fixed;
+  bottom: env(safe-area-inset-bottom);
   left: 0;
   right: 0;
   display: flex;
