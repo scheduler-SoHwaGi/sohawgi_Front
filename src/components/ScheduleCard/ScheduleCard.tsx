@@ -23,6 +23,7 @@ const ScheduleCard = () => {
 
   const onClickHandler = (scheduleId: number) => {
     setSheetOpen(true);
+    setClickedSchedule(scheduleId);
     console.log(scheduleId);
   };
 
