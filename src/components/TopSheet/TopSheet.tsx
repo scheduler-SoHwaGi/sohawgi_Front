@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 
@@ -8,6 +8,12 @@ interface TopSheetProps {
 }
 
 const TopSheet: React.FC<TopSheetProps> = ({ isOpen, onClose}) => {
+    const [selectedYear, setSelectedYear] = useState(2025);
+    const [selectedMonth, setSelectedMonth] = useState(3);
+  
+    const years = [2023, 2024, 2025, 2026, 2027];
+    const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    
   // 스크롤 방지 처리
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
@@ -50,7 +56,18 @@ const TopSheet: React.FC<TopSheetProps> = ({ isOpen, onClose}) => {
                 </div>
 
                 {/* 콘텐츠 (date picker_스크롤 영역) */}
-                <div className="h-[12rem]">
+                <div className="h-[12rem] pt-[1.62rem] pb-[1.66rem] overflow-y-auto no-scrollbar">
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
+                    <div>안녕</div>
                     
 
                 </div>
