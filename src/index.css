@@ -29,7 +29,7 @@
     }
 
     .body_04 {
-        @apply text-13 leading-[1rem];
+        @apply text-13 leading-[1rem] font-semibold;
     }
 
     .body_05 {
