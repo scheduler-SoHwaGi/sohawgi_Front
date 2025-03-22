@@ -22,6 +22,6 @@ const ToastBar = () => {
           </div>
       </div>
     </div>
-    );
+    )
   };
   export default ToastBar;
