@@ -43,18 +43,7 @@ const PlusPage = () => {
         </div>
         <VersionInfo />
       </div>
-      {/* 탑시트 열기 버튼 */}
-    <div className="flex justify-center mt-4">
-      <button
-        className="px-4 py-2 bg-blue-500 text-white rounded"
-        onClick={() => setShowSheet(true)}
-      >
-        탑시트 열기
-      </button>
-    </div>
-
-    {/* TopSheet 컴포넌트 직접 렌더링 */}
-    <TopSheet isOpen={showSheet} onClose={() => setShowSheet(false)} />
+      
       
       
     </div>
