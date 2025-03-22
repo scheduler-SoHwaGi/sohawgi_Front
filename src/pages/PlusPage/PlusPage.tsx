@@ -54,9 +54,7 @@ const PlusPage = () => {
     </div>
 
     {/* TopSheet 컴포넌트 직접 렌더링 */}
-    <TopSheet isOpen={showSheet} onClose={() => setShowSheet(false)}>
-      <div className="text-center">여기에 원하는 내용을 넣을 수 있어요!</div>
-    </TopSheet>
+    <TopSheet isOpen={showSheet} onClose={() => setShowSheet(false)} />
       
       
     </div>
