@@ -6,6 +6,8 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 import AddPageContainer from '../../components/AddPageContainer/AddPageContainer';
 import VersionInfo from '../../components/VersionInfo/VersionInfo';
 import ToastBar from '../../components/ToastBar/error'
+import TopSheet from '../../components/TopSheet/TopSheet'
+
 
 interface UserInfo {
   name: string;
@@ -16,6 +18,7 @@ const PlusPage = () => {
   const addPageInfoTitles = ['서비스 이용약관', '개인정보 처리방침'];
   const addPageSettingTitles = ['로그아웃', '회원탈퇴'];
   const [user, setUser] = useState<UserInfo | null>(null);
+  const [showSheet, setShowSheet] = useState(false);
 
   const getUserInfo = async () => {
     try {
@@ -40,8 +43,25 @@ const PlusPage = () => {
         </div>
         <VersionInfo />
       </div>
+      {/* 탑시트 열기 버튼 */}
+    <div className="flex justify-center mt-4">
+      <button
+        className="px-4 py-2 bg-blue-500 text-white rounded"
+        onClick={() => setShowSheet(true)}
+      >
+        탑시트 열기
+      </button>
+    </div>
+
+    {/* TopSheet 컴포넌트 직접 렌더링 */}
+    <TopSheet isOpen={showSheet} onClose={() => setShowSheet(false)}>
+      <div className="text-center">여기에 원하는 내용을 넣을 수 있어요!</div>
+    </TopSheet>
+      
       
     </div>
+
+    
   );
 };
 
