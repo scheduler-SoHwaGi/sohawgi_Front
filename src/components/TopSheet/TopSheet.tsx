@@ -57,17 +57,7 @@ const TopSheet: React.FC<TopSheetProps> = ({ isOpen, onClose}) => {
 
                 {/* 콘텐츠 (date picker_스크롤 영역) */}
                 <div className="h-[12rem] pt-[1.62rem] pb-[1.66rem] overflow-y-auto no-scrollbar">
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
-                    <div>안녕</div>
+                  
                     
 
                 </div>
