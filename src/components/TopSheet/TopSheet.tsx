@@ -36,7 +36,7 @@ const TopSheet: React.FC<TopSheetProps> = ({ isOpen, onClose, children }) => {
             exit={{ y: '-100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
             className="fixed top-0 left-0 right-0 z-[1010] 
-                       bg-white rounded-b-[1.5rem] p-6 shadow-md 
+                       bg-white rounded-b-[1.5rem] p-6 shadow-none 
                        flex flex-col justify-between h-[23.4375rem]"
           >
             {/* 콘텐츠 영역 */}
@@ -45,7 +45,7 @@ const TopSheet: React.FC<TopSheetProps> = ({ isOpen, onClose, children }) => {
             </div>
 
             {/* 하단 드래그 핸들 */}
-            <div className="w-[90px] h-[6px] bg-gray-300 rounded-full mx-auto mt-4 mb-2" />
+            <div className="w-[2.875rem] h-[0.3125rem] bg-Grey_02 rounded-full mx-auto mt-4 mb-2" />
           </motion.div>
         </>
       )}
