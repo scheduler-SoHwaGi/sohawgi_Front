@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import TextField from '../../components/TextField/TextField';
 import ScheduleCard from '../../components/ScheduleCard/ScheduleCard';
 
 import useSchedules from '../../hooks/useSchedule';
+import drop from '../../assets/images/drop.svg';
+import TopSheet from '../../components/TopSheet/TopSheet';
+
 
 const SchedulePage = () => {
-  const { postSchedule, setSchedule, deleteSchedule, scheduleList, schedule } =
-    useSchedules();
+  const { postSchedule, setSchedule, deleteSchedule, scheduleList, schedule } = useSchedules();
+  const [showSheet, setShowSheet] = useState(false);
   useEffect(() => {
     if (
       window.webkit &&
@@ -44,6 +47,17 @@ const SchedulePage = () => {
         schedule={schedule}
         setSchedule={setSchedule}
       />
+      <div
+        className='w-full h-[3.375rem] pl-[0.38rem] pb-[1.3rem] flex items-center gap-[0.5rem] cursor-pointer'
+        onClick={() => setShowSheet(true)}
+      >
+        <div className='text-Grey_06 body_01'>2025.03</div>
+        <div className="w-[1rem] h-[1rem] relative overflow-hidden">
+          <img src={drop} alt="드롭" className="w-full h-full" />
+        </div>
+      </div>
+      
+      <TopSheet isOpen={showSheet} onClose={() => setShowSheet(false)} />
       <ScheduleCard
         deleteSchedule={deleteSchedule}
         scheduleList={scheduleList}
