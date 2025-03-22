@@ -40,9 +40,7 @@ const PlusPage = () => {
         </div>
         <VersionInfo />
       </div>
-      <div>
-        <ToastBar msg='일정을 정확하게 입력해주세요'></ToastBar>
-      </div>
+      
     </div>
   );
 };
