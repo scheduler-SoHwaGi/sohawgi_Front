@@ -5,6 +5,7 @@ import { api } from '../../utils/axios';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import AddPageContainer from '../../components/AddPageContainer/AddPageContainer';
 import VersionInfo from '../../components/VersionInfo/VersionInfo';
+import ToastBar from '../../components/ToastBar/error'
 
 interface UserInfo {
   name: string;
@@ -38,6 +39,9 @@ const PlusPage = () => {
           <AddPageContainer title="설정" contentTitles={addPageSettingTitles} />
         </div>
         <VersionInfo />
+      </div>
+      <div>
+        <ToastBar></ToastBar>
       </div>
     </div>
   );
