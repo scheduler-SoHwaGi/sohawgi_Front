@@ -6,6 +6,7 @@ import ScheduleCard from '../../components/ScheduleCard/ScheduleCard';
 import useSchedules from '../../hooks/useSchedule';
 import drop from '../../assets/images/drop.svg';
 import TopSheet from '../../components/TopSheet/TopSheet';
+import ToastBar from '../../components/ToastBar/error';
 
 
 const SchedulePage = () => {
@@ -62,6 +63,9 @@ const SchedulePage = () => {
         deleteSchedule={deleteSchedule}
         scheduleList={scheduleList}
       />
+
+      <ToastBar msg='에러입니다'></ToastBar>
+
     </div>
   );
 };
