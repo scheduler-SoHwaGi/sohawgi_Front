@@ -8,11 +8,11 @@ import {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // 페이지 컴포넌트 import
-import SchedulePage from './pages/SchedulePage/SchedulePage.tsx';
-import PlusPage from './pages/PlusPage/PlusPage.tsx';
+import SchedulePage from './pages/SchedulePage/SchedulePage';
+import PlusPage from './pages/PlusPage/PlusPage';
 import UserPrivacyPage from './pages/TermPage/UserPrivacyPage';
 import UsePolicyPage from './pages/TermPage/UsePolicyPage';
-import BottomNavi from './components/BottomNavi/BottomNavi.tsx';
+import BottomNavi from './components/BottomNavi/BottomNavi';
 
 const queryClient = new QueryClient();
 
