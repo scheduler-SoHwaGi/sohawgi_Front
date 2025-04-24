@@ -13,6 +13,7 @@ import PlusPage from './pages/PlusPage/PlusPage';
 import UserPrivacyPage from './pages/TermPage/UserPrivacyPage';
 import UsePolicyPage from './pages/TermPage/UsePolicyPage';
 import BottomNavi from './components/BottomNavi/BottomNavi';
+import AuthProvider from './contexts/AuthProvider';
 
 const queryClient = new QueryClient();
 
@@ -38,9 +39,11 @@ function AppContent() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <AppContent />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <AppContent />
+        </Router>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
