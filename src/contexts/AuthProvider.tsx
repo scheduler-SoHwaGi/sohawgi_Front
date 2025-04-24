@@ -10,6 +10,9 @@ function AuthProvider({ children }: MyComponentProps) {
   const [authInfo, setAuthInfo] = useState(null);
 
   useEffect(() => {
+    window.receiveUserInfo = function (info) {
+      console.log('webview data: ' + JSON.stringify(info));
+    };
     if (
       window.webkit &&
       window.webkit.messageHandlers &&
@@ -32,6 +35,7 @@ function AuthProvider({ children }: MyComponentProps) {
         'authorizationCode',
         JSON.stringify(info.authorizationCode),
       );
+      
       setAuthInfo(info);
     };
   }, []);
