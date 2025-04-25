@@ -16,7 +16,7 @@ const TextField: React.FC<TextFieldProps> = ({ postSchedule }) => {
 
   return (
     <form
-      className={'sticky pt-80 pb-37 top-0 bg-Grey_01 flex w-full'}
+      className={'sticky pt-80 pb-37 top-0 flex w-full'}
       onSubmit={handleSubmit}
     >
       <div className={'w-full relative'}>
