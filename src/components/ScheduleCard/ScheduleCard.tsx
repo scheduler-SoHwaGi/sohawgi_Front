@@ -48,10 +48,6 @@ const ScheduleCard = () => {
     }
   };
 
-  useEffect(() => {
-    console.log('scheduleList 변경', scheduleList.length);
-  }, [scheduleList]);
-
   return (
     <div className="flex flex-col no-scrollbar flex-shrink-0 gap-6 bg-White p-[1.88rem] px-[1.69rem] rounded-[1.7rem] overflow-y-scroll">
       <div className="text-Grey_06 body_01">일정</div>
