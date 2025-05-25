@@ -27,7 +27,7 @@ const SchedulePage = () => {
         />
       </div>
       <div className="flex-1 h-full">
-        <ScheduleCard />
+        <ScheduleCard selectedDate = {selectedDate} />
       </div>
     </div>
   );
