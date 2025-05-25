@@ -85,7 +85,7 @@ const WeeklyCalendar = ({
           {days.map((day, idx) => {
             const isSelected = selectedDate?.isSame(day, 'day');
             const formattedDate = day.format('YYYY-MM-DD');
-            const count = scheduleCount[formattedDate] ?? 0;
+            const count = scheduleCount[formattedDate] ?? null;
 
             return (
                 <div
@@ -103,7 +103,7 @@ const WeeklyCalendar = ({
                     <div
                         className={`absolute inset-0 flex items-center justify-center  ${isSelected ? 'text-white' : 'text-Grey_04'}`}
                     >
-                      {count}
+                      {count === 0 ?  null : count}
                     </div>
                   </div>
                   <div>{day.format('D') + '일 '}</div>
