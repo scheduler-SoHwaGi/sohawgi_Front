@@ -20,6 +20,16 @@ const isDevLogin = async() => {
   }
 }
 
+/**
+ * Provides authentication context to child components.
+ *
+ * Initializes authentication state, handles user info received from a native WebView or development login, and supplies authentication data to descendants via {@link AuthContext}.
+ *
+ * @param children - React components that will have access to the authentication context.
+ *
+ * @remark
+ * In development mode, performs a mock login and stores tokens in localStorage. In production, listens for user info from a native WebView and stores authentication details in localStorage.
+ */
 export function AuthProvider({ children }: MyComponentProps) {
   const [authInfo, setAuthInfo] = useState(null);
   const isDev = import.meta.env.DEV;

@@ -7,6 +7,11 @@ import UsePolicyPage from '../pages/TermPage/UsePolicyPage';
 import UserPrivacyPage from '../pages/TermPage/UserPrivacyPage';
 import BottomNavi from '../components/BottomNavi/BottomNavi';
 
+/**
+ * Renders the main application layout with dynamic routing and conditional container height.
+ *
+ * Displays routed page content based on the current URL and always includes the bottom navigation bar. The container's minimum height adjusts depending on the current path and environment.
+ */
 export function AppContent() {
   const location = useLocation();
   const isDev = import.meta.env.DEV;
