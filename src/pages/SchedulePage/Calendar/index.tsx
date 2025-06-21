@@ -35,8 +35,6 @@ const Calendar = ({
                           setSelectedDate,
                         }: WeeklyCalendarProps) => {
   const [weeklyScheduleData, setWeeklyScheduleData] = useState<WeekData[]>([]);
-  const [checked, setChecked] = useState(false);
-
 
   const startOfWeek = useMemo(() => selectedDate.startOf('week'), [selectedDate]);
   const endOfWeek = useMemo(() => selectedDate.endOf('week'), [selectedDate]);
