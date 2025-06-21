@@ -73,4 +73,5 @@ export const handlers = [
   http.post(`${baseURL}/schedules/:scheduleId/actions/toggle-checked`, () => {
     return HttpResponse.json({}, { status: 200 });
   })
+
 ];
