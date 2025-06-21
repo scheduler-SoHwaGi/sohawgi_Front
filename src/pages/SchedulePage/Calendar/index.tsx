@@ -8,7 +8,7 @@ import prevBtn from '../../../assets/images/Calendar/prevWeekBtn.svg';
 import nextBtn from '../../../assets/images/Calendar/nextWeekBtn.svg';
 import selectedEmoji from '../../../assets/images/Calendar/selectedEmoji.svg';
 import defaultEmoji from '../../../assets/images/Calendar/defaultEmoji.svg';
-import checkEmoji from '../../../assets/images/check.svg'
+import CheckEmoji from '../../../assets/images/check.svg?react';
 
 import {api} from "../../../utils/axios";
 
@@ -35,6 +35,8 @@ const Calendar = ({
                           setSelectedDate,
                         }: WeeklyCalendarProps) => {
   const [weeklyScheduleData, setWeeklyScheduleData] = useState<WeekData[]>([]);
+  const [checked, setChecked] = useState(false);
+
 
   const startOfWeek = useMemo(() => selectedDate.startOf('week'), [selectedDate]);
   const endOfWeek = useMemo(() => selectedDate.endOf('week'), [selectedDate]);
@@ -111,7 +113,7 @@ const Calendar = ({
                     <div
                         className={`absolute inset-0 flex items-center justify-center  ${isSelected ? 'text-white' : 'text-Grey_04'}`}
                     >
-                      {status=== "DONE" ? <img src={checkEmoji} alt={"checked"}/> :count !==0 ? count : null }
+                      {status=== "DONE" ? <CheckEmoji style={{ color: isSelected ? '#ffffff' : '#DADDE0', cursor: 'pointer' }} className="w-18 h-16 white"/> :count !==0 ? count : null }
                     </div>
                   </div>
                   <div>{day.format('D') + '일 '}</div>
