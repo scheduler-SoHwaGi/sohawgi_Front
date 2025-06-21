@@ -1,21 +1,5 @@
 import { http, HttpResponse } from 'msw';
 
-// 더미 데이터 생성
-const dummySchedules ={
-   schedules : [
-  { "scheduleId": 4,
-    "title": "면접 준비",
-    "time" : "오전 7:30",
-    "checked" : true
-  },
-  { "scheduleId": 5,
-    "title": "CMC 면접",
-    "time" : "오전 8:30",
-    "checked" : false,
-  }
-  ]
-}
-
 const mockCounts = {
   scheduleCounts: [
     {
@@ -56,15 +40,37 @@ const mockCounts = {
   ]
 };
 
+
+export const mockSchedules = {
+  schedules: [
+    {
+      scheduleId: 4,
+      title: '면접 준비',
+      time: '오전 7:30',
+      checked: true,
+    },
+    {
+      scheduleId: 5,
+      title: 'CMC 면접',
+      time: '오전 8:30',
+      checked: false,
+    },
+  ],
+};
+
+
 const baseURL = import.meta.env.VITE_BASE_SERVER_URL;
 
 export const handlers = [
-  // 포스트 목록
-  http.get('/schedules?year=2025&month=3&day=21', () => {
-    return HttpResponse.json(dummySchedules);
-  }),
-
   http.get(`${baseURL}/schedules/counts`, () => {
     return HttpResponse.json(mockCounts)
+  }),
+
+  http.get(`${baseURL}/schedules`, () => {
+    return HttpResponse.json(mockSchedules)
+  }),
+
+  http.post(`${baseURL}/schedules/:scheduleId/actions/toggle-checked`, () => {
+    return HttpResponse.json({}, { status: 200 });
   })
 ];
