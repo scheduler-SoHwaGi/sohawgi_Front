@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+
 import { formatTime, getRandomIndex } from '../../utils';
-import defaultCheckBox from './img/defaultCheckbox.svg';
+import { colorPairs } from './constants';
+
 import CheckedBox from './CheckedBox';
-import {api} from '../../utils/axios';
 import DefaultBox from './DefaultBox';
 
 type Props = {
-  scheduleId: string;
+  scheduleId: number;
   time:string;
   title: string;
   checked: boolean;
@@ -14,24 +15,18 @@ type Props = {
   onToggleChecked:(scheduleId: number, checked: boolean) => void;
 };
 
-const colorPairs = [
-  {bg: '#E3F1F2', icon:'#6FC6CF'},
-  {bg:'#E9F3E3', icon:'#9ED87E'},
-  {bg:'#E4ECF4', icon:'#72A8DD'},
-  {bg:'#F4E7EE', icon:'#DF86B7'},
-  {bg:'#F8EAEA', icon:'#F59B9C'},
-  {bg: '#F9F4DE', icon:'#FFE477'}
-]
-
-const ScheduleDetail = ({ scheduleId, time, title, onClick, checked, onToggleChecked }: Props) => {
+const ScheduleDetail = ({ time, title, onClick, checked }: Props) => {
   const [done, setDone] = useState<boolean>(checked);
   const [colorIndex, setColorIndex] = useState(getRandomIndex(colorPairs.length));
 
   const onCheckClick = () => {
-      setDone(!done);
-      const randomIndex = getRandomIndex(5);
+    const newDone = !done;
+    setDone(newDone);
+
+    if (newDone) {
+      const randomIndex = getRandomIndex(colorPairs.length);
       setColorIndex(randomIndex);
-      //onToggleChecked(scheduleId)
+    }
   }
 
   return (
