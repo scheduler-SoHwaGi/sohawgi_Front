@@ -20,6 +20,7 @@ const useSchedules = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['SCHEDULE_LIST'] });
+      queryClient.invalidateQueries({ queryKey: ['WEEKLY_SCHEDULE']})
     },
   });
 
