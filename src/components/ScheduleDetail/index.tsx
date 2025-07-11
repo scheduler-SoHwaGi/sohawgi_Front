@@ -5,6 +5,8 @@ import { colorPairs } from './constants';
 
 import CheckedBox from './CheckedBox';
 import DefaultBox from './DefaultBox';
+import { api } from '../../utils/axios';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 type Props = {
   scheduleId: number;
@@ -12,22 +14,34 @@ type Props = {
   title: string;
   checked: boolean;
   onClick: () => void;
-  onToggleChecked:(scheduleId: number, checked: boolean) => void;
 };
 
-const ScheduleDetail = ({ time, title, onClick, checked }: Props) => {
+const ScheduleDetail = ({ scheduleId, time, title, onClick, checked }: Props) => {
   const [done, setDone] = useState<boolean>(checked);
   const [colorIndex, setColorIndex] = useState(getRandomIndex(colorPairs.length));
 
   const onCheckClick = () => {
     const newDone = !done;
     setDone(newDone);
+    toggleCheck();
 
     if (newDone) {
       const randomIndex = getRandomIndex(colorPairs.length);
       setColorIndex(randomIndex);
     }
   }
+
+  const queryClient = useQueryClient();
+
+  const { mutate: toggleCheck } = useMutation({
+    mutationFn: async () => {
+      await api.post(`/schedules/${scheduleId}/actions/toggle-checked`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['SCHEDULE_LIST'] });
+      queryClient.invalidateQueries({ queryKey: ['WEEKLY_SCHEDULE'] });
+    },
+  })
 
   return (
     <div className="flex items-center justify-start gap-[0.9rem] w-full ">
