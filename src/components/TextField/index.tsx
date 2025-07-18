@@ -21,8 +21,8 @@ const TextField = () => {
 
   useEffect(() => {
     if (postError) {
-      setIsOpenToast(false); // 👈 먼저 꺼주고
-      setTimeout(() => setIsOpenToast(true), 10); // 👈 다시 true로 (delay로 리렌더 보장)
+      setIsOpenToast(false);
+      setTimeout(() => setIsOpenToast(true), 10);
     }
   }, [postError]);
 
