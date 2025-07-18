@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import ScheduleDetail from '../ScheduleDetail';
-import BottomSheet from '../BottomSheet/BottomSheet';
+import BottomSheet from '../BottomSheet';
 
 import useScheduleListQuery from '../../hooks/useScheduleListQuery';
 import DefaultComponent from '../../pages/SchedulePage/DefaultComponent';

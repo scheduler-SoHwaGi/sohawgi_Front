@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
-import TextField from '../../components/TextField/TextField';
-import ScheduleCard from '../../components/ScheduleCard/ScheduleCard';
+import TextField from '../../components/TextField';
+import ScheduleCard from '../../components/ScheduleCard';
 import Calendar from './Calendar';
 
 import dayjs, { Dayjs } from 'dayjs';
