@@ -4,23 +4,21 @@ import selectedEmoji from '../../../../assets/images/Calendar/selectedEmoji.svg'
 import defaultEmoji from '../../../../assets/images/Calendar/defaultEmoji.svg';
 import CheckEmoji from '../../../../assets/images/check.svg?react';
 import { Dayjs } from 'dayjs';
-import { convertDateFormat } from '../../../../utils';
 import { WeekData } from '../../../../types/weeklyCalendar';
 
 type Props = {
   day: Dayjs;
   selectedDate: Dayjs;
   setSelectedDate: (date: Dayjs) => void;
-  weeklyScheduleCounts: WeekData[];
+  matchingDate: WeekData;
 };
 
-function CalendarCell({day, selectedDate, setSelectedDate, weeklyScheduleCounts} : Props) {
+function CalendarCell({day, selectedDate, setSelectedDate, matchingDate} : Props) {
 
-  const matchingData = weeklyScheduleCounts?.find(item => item.date === convertDateFormat(day));
   const isSelected = selectedDate?.isSame(day, 'day');
 
-  const count = matchingData?.counts ?? null;
-  const status = matchingData?.status ?? null;
+  const count = matchingDate?.counts ?? null;
+  const status = matchingDate?.status ?? null;
   return (
     <div
     className={`flex flex-col body_05 gap-6 hover:cursor-pointer text-center ${isSelected ? 'text-Grey_06' : 'text-Grey_03'}`}
