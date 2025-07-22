@@ -6,7 +6,7 @@ import updateLocale from 'dayjs/plugin/updateLocale';
 import prevBtn from '../../../assets/images/Calendar/prevWeekBtn.svg';
 import nextBtn from '../../../assets/images/Calendar/nextWeekBtn.svg';
 
-import useWeeklySchedules from '../../../hooks/useWeeklySchedules';
+import useWeeklyScheduleCountsQuery from '../../../hooks/useWeeklyScheduleCountsQuery';
 import CalendarCell from './CalendarCell';
 
 type WeeklyCalendarProps = {
@@ -28,7 +28,12 @@ const Calendar = ({
   const startOfWeek = useMemo(() => selectedDate.startOf('week'), [selectedDate]);
   const endOfWeek = useMemo(() => selectedDate.endOf('week'), [selectedDate]);
 
-  const { data: weeklyScheduleCounts } = useWeeklySchedules(startOfWeek, endOfWeek);
+  const { data: weeklyScheduleCounts } = useWeeklyScheduleCountsQuery(startOfWeek, endOfWeek);
+
+  const weeklyScheduleMap = useMemo(() => {
+    if(!weeklyScheduleCounts) return new Map();
+    return new Map(weeklyScheduleCounts.map(item => [item.date, item]));
+  }, [weeklyScheduleCounts]);
 
   const days = Array.from({ length: 7 }).map((_, idx) =>
       startOfWeek.add(idx, 'day'),
@@ -52,8 +57,9 @@ const Calendar = ({
         </div>
         <div className={'flex place-content-between'}>
           {days.map((day, idx) => {
+            const matchingDate = weeklyScheduleMap.get(day);
             return (
-                <CalendarCell key={idx} day={day} selectedDate={selectedDate} setSelectedDate={setSelectedDate} weeklyScheduleCounts={weeklyScheduleCounts}  />
+                <CalendarCell key={idx} day={day} selectedDate={selectedDate} setSelectedDate={setSelectedDate} matchingDate = {matchingDate}  />
             );
           })}
         </div>
