@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 
 import ScheduleDetail from '../ScheduleDetail';
-import BottomSheet from '../BottomSheet/BottomSheet';
+import BottomSheet from '../BottomSheet';
 
-import useScheduleListQuery from '../../hooks/useScheduleListQuery';
+import {getDailyScheduleListQuery} from '../../hooks/useDailySchedulesQuery';
 import DefaultComponent from '../../pages/SchedulePage/DefaultComponent';
 
+import useSchedule from '../../hooks/useScheduleMutations';
 import { Dayjs } from 'dayjs';
-import useSchedule from '../../hooks/useScheduleMutation';
+import { getDailyDateObject, getWeeklyDateObject } from '../../utils';
 
 type ScheduleCardProps = {
   selectedDate: Dayjs;
 };
 
 const ScheduleCard = ({ selectedDate }: ScheduleCardProps) => {
-  const year = selectedDate.year();
-  const month = selectedDate.month() + 1;
-  const day = selectedDate.date();
+  const dailyObj = getDailyDateObject(selectedDate);
+  const weeklyObj = getWeeklyDateObject(selectedDate);
 
-  const { data: scheduleList = [] } = useScheduleListQuery(year, month, day);
+  const { data: scheduleList = [] } = getDailyScheduleListQuery(dailyObj);
   const  { deleteSchedule } = useSchedule();
 
   const [isSheetOpen, setSheetOpen] = useState<boolean>(false);
@@ -33,7 +33,6 @@ const ScheduleCard = ({ selectedDate }: ScheduleCardProps) => {
     setClickedSchedule(scheduleId);
     setSheetOpen(true);
   };
-
 
   const handleDelete = async () => {
     if (clickedSchedule !== null) {
@@ -57,6 +56,8 @@ const ScheduleCard = ({ selectedDate }: ScheduleCardProps) => {
                 title={schedule.title}
                 time={schedule.time}
                 checked={schedule.checked}
+                dailyDate={dailyObj}
+                weekRangeDate={weeklyObj}
                 onClick={() => onClickHandler(schedule.scheduleId)}
               />
             ))}
@@ -72,4 +73,4 @@ const ScheduleCard = ({ selectedDate }: ScheduleCardProps) => {
   );
 };
 
-export default ScheduleCard;
+export default React.memo(ScheduleCard);

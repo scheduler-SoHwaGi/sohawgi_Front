@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { api } from '../../utils/axios';
 
 // Import Components
-import UserProfile from '../../components/UserProfile/UserProfile';
-import AddPageContainer from '../../components/AddPageContainer/AddPageContainer';
-import VersionInfo from '../../components/VersionInfo/VersionInfo';
+import UserProfile from '../../components/UserProfile';
+import AddPageContainer from '../../components/AddPageContainer';
+import VersionInfo from '../../components/VersionInfo';
 
 interface UserInfo {
   name: string;
