@@ -27,9 +27,9 @@ const TextField = ({ selectedDate }: TextFieldProps) => {
     postSchedule(trimmedValue);
 
     trackEvent('register_button', {
-      input: trimmedValue,
-      timestamp: new Date().toISOString(),
+      input_length: trimmedValue.length,
     })
+
     setInputValue('');
   };
 
