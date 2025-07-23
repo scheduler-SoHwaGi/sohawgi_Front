@@ -24,12 +24,12 @@ const TextField = ({ selectedDate }: TextFieldProps) => {
 
     if (!trimmedValue) return;
 
+    postSchedule(trimmedValue);
+
     trackEvent('register_button', {
       input: trimmedValue,
       timestamp: new Date().toISOString(),
     })
-
-    postSchedule(trimmedValue);
     setInputValue('');
   };
 
