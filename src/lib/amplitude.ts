@@ -2,7 +2,7 @@
 import * as amplitude from '@amplitude/analytics-browser';
 
 const apiKey = import.meta.env.VITE_AMPLITUDE_API_KEY;
-const isProduction = import.meta.env.mode === 'production';
+const isProduction = import.meta.env.MODE === 'production';
 
 export const initAmplitude = () => {
   if (!apiKey || !isProduction) return;
