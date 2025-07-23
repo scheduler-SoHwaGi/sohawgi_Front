@@ -23,12 +23,12 @@ const AddPageContainer = ({ title, contentTitles }: Props) => {
           window.webkit.messageHandlers &&
           window.webkit.messageHandlers.logoutHandler
         ) {
-          window.webkit.messageHandlers.logoutHandler.postMessage('logout');
-
           trackEvent('log_out', {
             user_id: localStorage.getItem('userID'),
             timestamp: new Date().toISOString()
           })
+
+          window.webkit.messageHandlers.logoutHandler.postMessage('logout');
         } else {
           console.error('Logout handler not found');
         }
@@ -40,10 +40,8 @@ const AddPageContainer = ({ title, contentTitles }: Props) => {
           window.webkit.messageHandlers.deleteAccountHandler
         ) {
           trackEvent('withdraw_account', {
-            user_id: localStorage.getItem('userID'),
-            reason: 'reason',
-            duration_since_signup:'',
-            has_schedule_data: ""
+            user_id: localStorage.getItem('userID') || 'anonymous'
+            // TODO: Add reason, duration_since_signup, has_schedule_data when data is available
           })
 
           window.webkit.messageHandlers.deleteAccountHandler.postMessage(
