@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import useSchedules from '../../hooks/useScheduleMutations';
 import LoadingSpinner from '../LoadingSpinner';
 import ToastBar from '../ToastBar';
@@ -6,18 +6,27 @@ import { Dayjs } from 'dayjs';
 import { getDailyDateObject, getWeeklyDateObject } from '../../utils';
 import { trackEvent } from '../../lib/amplitude';
 
+
+
 type TextFieldProps = {
   selectedDate: Dayjs
 }
 
 const TextField = ({ selectedDate }: TextFieldProps) => {
   const [isOpenToast, setIsOpenToast] = useState(true);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('오늘 오후 9시 운동');
+  const inputRef = useRef<HTMLInputElement>(null);
+  
 
   const dailyObject = getDailyDateObject(selectedDate);
   const weeklyObj = getWeeklyDateObject(selectedDate);
 
   const { postSchedule, isPosting, postError } = useSchedules({dailyDate : dailyObject, weekRangeDate: weeklyObj});
+
+  useEffect(() => {
+    // ✅ 컴포넌트 마운트 시 자동 focus
+    inputRef.current?.focus();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -57,6 +66,7 @@ const TextField = ({ selectedDate }: TextFieldProps) => {
               ' w-full px-[1.0625rem] py-[0.8125rem] pr-[3.6rem] outline-none border border-transparent text-Grey_06 body_03 bg-Grey_02 rounded-15 focus:border-1 focus:border-Grey_06 placeholder:text-Grey_04 placeholder:text-14'
             }
             type="text"
+            ref={inputRef}
             placeholder="예 ) 오늘 오후 7시 팀플 회의"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
