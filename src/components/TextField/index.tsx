@@ -63,7 +63,8 @@ const TextField = ({ selectedDate }: TextFieldProps) => {
         <div className={'w-full relative'}>
           <input
             className={
-              ' w-full px-[1.0625rem] py-[0.8125rem] pr-[3.6rem] outline-none border border-transparent text-Grey_06 body_03 bg-Grey_02 rounded-15 focus:border-1 focus:border-Grey_06 placeholder:text-Grey_04 placeholder:text-14'
+              ' w-full px-[1.0625rem] py-[0.8125rem] pr-[3.6rem] outline-none border border-transparent text-Grey_06 body_03 bg-Grey_02 rounded-15 focus:border-1 focus:border-Grey_06 placeholder:text-Grey_04 placeholder:text-14' +
+    ' focus:ring-0 focus:ring-Grey_06' 
             }
             type="text"
             ref={inputRef}
