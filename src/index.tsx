@@ -8,7 +8,7 @@ import { worker } from './mocks/browser';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 if(import.meta.env.DEV) {
-  await worker.start();
+  //await worker.start();
   root.render(<App />);
 } else {
   root.render(<App />);
